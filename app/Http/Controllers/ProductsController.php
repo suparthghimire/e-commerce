@@ -29,7 +29,7 @@ class ProductsController extends Controller
             $cart = [
                 $id => [
 
-                    "id"=>$id,
+                    "id"=>$hoodies->id,
                     "name"=>$hoodies->name,
                     "quantity"=>1,
                     "price"=>$hoodies->sellingPrice,
@@ -39,7 +39,7 @@ class ProductsController extends Controller
             ];
             session()->put('cart',$cart);
             session()->flash('success','Item Added to Cart Successfully!');
-            return redirect()->back();
+            return redirect()->view('cart.index');
         }
         // if cart is not empty, check if product already exosts in the cart
         if(isset($cart[$id])){
@@ -50,7 +50,7 @@ class ProductsController extends Controller
         }
         // if cart is not empty and item is not in the cart
         $cart[$id] = [
-            "id"=>$id,
+            "id"=>$hoodies->id,
             "name"=>$hoodies->name,
             "quantity"=>1,
             "price"=>$hoodies->sellingPrice,
@@ -59,7 +59,7 @@ class ProductsController extends Controller
         ];
         session()->put('cart',$cart);
         session()->flash('success','Item Added to Cart Successfully!');
-        return redirect()->back();
+        return redirect()->view('cart.index');
     }
     public function removeItem($id){
         session()->flash('success','Removed');

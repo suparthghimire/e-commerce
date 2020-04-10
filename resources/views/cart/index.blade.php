@@ -51,7 +51,7 @@
                                         </p>
                                     </td>
                                     <td>
-                                        <a href="{{route('cart.remove',$details['id'])}}" class="btn btn-danger">Remove</a>
+                                        {{-- <a href="{{route('cart.remove',$details['id'])}}" class="btn btn-danger">Remove</a> --}}
                                     </td>
                                 </tr>
                                 <?php $count++ ?>
